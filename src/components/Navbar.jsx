@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { FiSearch } from 'react-icons/fi'
+import { FiShoppingCart } from "react-icons/fi";
+import { BsSun } from "react-icons/bs";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,11 +11,12 @@ const Navbar = () => {
     };
 
     return (
-        <nav className="flex items-center justify-between flex-wrap bg-transparent py-4 lg:px-12 shadow border-solid border-t-2 border-blue-700">
+        <nav className="flex items-center justify-between flex-wrap bg-[#FFFDFA] py-4 lg:px-12 shadow border-solid border-t-2 border-blue-700">
             {/* Navbar header */}
             <div className="flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-solid border-b-2 border-gray-300 pb-5 lg:pb-0">
                 <div className="flex items-center flex-shrink-0 text-gray-800 mr-16">
-                    <span className="font-semibold text-xl tracking-tight">Book Shop</span>
+                    {/* <span className="font-semibold text-xl tracking-tight">Book Shop</span> */}
+                    <img src="../../public/icon-black.png" alt="" className='h-[10dvh]' />
                 </div>
                 {/* Mobile menu toggle */}
                 <div className="block lg:hidden">
@@ -61,14 +64,16 @@ const Navbar = () => {
                     </button>
                 </div> */}
                 <div className='border-[#EAEFF3] border-2 rounded-4xl flex overflow-hidden mx-auto'>
-                    <input type="text" className='focus:outline-none focus:ring-0 focus:border-transparent ps-5 my-2 h-[20px] w-[-webkit-fill-available]' placeholder='Search'/>
+                    <input type="text" className='focus:outline-none focus:ring-0 focus:border-transparent ps-5 my-2 h-[20px] w-[-webkit-fill-available]' placeholder='Search' />
                     <button className='px-5 bg-[#EAEFF3]'>
                         <FiSearch className="text-gray-500 w-5 h-5" />
                     </button>
                 </div>
                 {/* Auth Buttons */}
                 <div className="flex">
-                    <input type="button" value='Sign In'/>
+                    <button><FiShoppingCart className="text-black w-5 h-5 me-2" /></button>
+                    <button>Sign In</button>
+                    <button><BsSun className="text-black w-5 h-5 ms-5" /></button>
                 </div>
             </div>
         </nav>
