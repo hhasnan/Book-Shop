@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FiSearch } from 'react-icons/fi'
 import { FiShoppingCart } from "react-icons/fi";
 import { BsSun } from "react-icons/bs";
+import { FaUser } from 'react-icons/fa'
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -42,10 +43,10 @@ const Navbar = () => {
                     </button>
                 </div>
                 {/* Auth Buttons */}
-                <div className="flex flex-col lg:flex-row order-1 lg:order-2">
-                    <button><FiShoppingCart className="text-black w-5 h-5 lg:me-3 block lg:inline mb-3 lg:mb-0" /></button>
-                    <button className='text-start ms-2 lg:ms-0 mb-3 lg:mb-0'>Sign In</button>
-                    <button><BsSun className="text-black w-5 h-5 ms-2 lg:ms-7 mb-3 lg:mb-0" /></button>
+                <div className="flex flex-col lg:flex-row order-1 lg:order-2 ms-2 lg:ms-0 mt-5 lg:mt-0">
+                    <button className='flex lg:inline'><FiShoppingCart className="text-black w-5 h-5 lg:me-3  mb-3 lg:mb-0" /> <p className='flex lg:hidden ms-1'>Cart</p></button>
+                    <button className='text-start mb-3 lg:mb-0 flex lg:inline'><FaUser className="text-black w-5 h-5 mb-3 lg:mb-0 lg:hidden me-1 lg:me-0" />Sign In</button>
+                    <button className='flex lg:inline'><BsSun className="text-black w-5 h-5 mb-3 lg:mb-0  ms-0 lg:ms-10" /><p className='flex lg:hidden ms-1'>Theme</p></button>
                 </div>
             </div>
         </nav>
