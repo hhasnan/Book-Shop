@@ -11,11 +11,11 @@ body {
 }
 
 .text-primary {
-    color: rgba(38, 16, 96, 0.7);
+    color: #1C1C1C;
 }
 
 .text-paragraph {
-    color: rgba(30, 30, 30, 0.9);
+    color: #333333;
 }
 
 /* swiper css */
