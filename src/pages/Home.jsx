@@ -11,7 +11,7 @@ const Home = () => {
         <div className='w-[100%] lg:w-[50%] text-center mt-0 lg:mt-17 mb-10 px-10 lg:px-0'>
           <h1 className='text-2xl font-bold mb-5 text-primary text-bold '>Your Next Favorite Book Is Just a Click Away!</h1>
           <p className='text-paragraph font-semibold'>Discover bestsellers, classics, and hidden gems.</p>
-          <p className='mt-10'>
+          <p className='mt-10 hidden lg:block'>
             <Button linkTo='/books' buttonValue='Explore Books' />
           </p>
         </div>
