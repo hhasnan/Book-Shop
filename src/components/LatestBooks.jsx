@@ -24,7 +24,7 @@ const LatestBooks = () => {
                 breakpoints={{
                     // when window width is >= 320px
                     320: {
-                        slidesPerView: 1,
+                        slidesPerView: 2,
                     },
                     // when window width is >= 640px
                     640: {
