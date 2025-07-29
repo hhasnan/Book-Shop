@@ -27,7 +27,7 @@ const Navbar = () => {
                     <div className="block lg:hidden">
                         <button
                             onClick={toggleMenu}
-                            className="flex items-center px-3 py-2 border-2 rounded text-blue-700 border-blue-700 hover:text-blue-700 hover:border-blue-700"
+                            className="flex items-center px-3 py-2 border-2 rounded text-black border-black-700 hover:shadow-lg "
                         >
                             <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <title>Menu</title>
@@ -41,7 +41,7 @@ const Navbar = () => {
                 <div
                     className={`menu w-full  flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8 ${isMenuOpen ? 'block' : 'hidden'}`}>
                     <div className='border-[#EAEFF3] border-2 rounded-4xl flex overflow-hidden mx-auto order-2 lg:order-1 mb-3 lg:mb-0 mt-5 lg:mt-0'>
-                        <input type="text" className='focus:outline-none focus:ring-0 focus:border-transparent ps-5 my-2 h-[20px] w-[-webkit-fill-available]' placeholder='Search' />
+                        <input type="text" className='focus:outline-none focus:ring-0 focus:border-transparent ps-5 my-2 h-[20px] w-[-webkit-fill-available] w-[-moz-available]' placeholder='Search' />
                         <button className='px-5 bg-[#EAEFF3]'>
                             <FiSearch className="text-gray-500 w-5 h-5" />
                         </button>
