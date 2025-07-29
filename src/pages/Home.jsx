@@ -3,8 +3,12 @@ import SwiperCarousel from '../components/SwiperCarousel'
 import Button from '../components/Button'
 import LatestBooks from '../components/LatestBooks'
 import { FaArrowRight } from 'react-icons/fa';
+import BookData from '../data/books.json'
 
 const Home = () => {
+
+  const latestBooks = [...BookData].sort((a, b) => b.year - a.year).slice(0, 3);
+
   return (
     <div className=''>
       <div className='flex flex-col lg:flex-row container mx-auto mt-10 lg:mt-15 overflow-hidden'>
@@ -23,11 +27,32 @@ const Home = () => {
         <div className='container mx-auto py-10'>
           <div className='flex justify-between items-center px-5 lg:px-0 mb-0 lg:mb-5'>
             <h2 className='text-start text-lg lg:text-2xl font-bold text-primary py-5'>Latest Books</h2>
-            <button className='text-sm lg:text-md underline explore-button relative'>Explore Now <FaArrowRight className='text-[10px] inline-block absolute right-arrow'/></button>
+            <button className='text-sm lg:text-md underline explore-button relative'>Explore Now <FaArrowRight className='text-[10px] inline-block absolute right-arrow' /></button>
           </div>
           <div className='mx-5 lg:mx-0'>
             <div className="hidden md:block">
               <LatestBooks />
+            </div>
+            <div className='md:hidden'>
+              {latestBooks.map((book, index) => (
+                <div className='w-[full] h-[290px] relative mb-5 text-white' key={index}>
+                  <img src={book.image_url} alt="" className='w-[100%] h-[100%] border-0 outline-0 swiper-img' />
+                  <div className='absolute top-0 left-0 w-[100%] h-[100%] border-0 outline-0 swiper-hover-div'>
+                    <div className='w-[100%] h-[100%] text-[rgba(255, 255, 255, 1)] card-bg absolute z-50 top-0  '>
+                    </div>
+                    <div className='absolute top-0 left-0 z-50 swiper-hover-text flex flex-col w-[100%] h-[100%]' style={{ justifyContent: 'space-between' }}>
+                      <h3 className='text-sm font-bold title absolute top-[-2%] mx-4'>Name : {book.title}</h3>
+                      <div>
+
+                      </div>
+                      <p className='text-sm author absolute bottom-[-2%] mx-4'>
+                        Year : {book.year} <br />
+                        Author : {book.author}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

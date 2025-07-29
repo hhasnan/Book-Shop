@@ -90,18 +90,12 @@ body {
 }
 
 .swiper-hover-div .card-bg {
+  background-color: rgb(0, 0, 0, 0);
   transition: all 0.5s ease-in-out;
 }
 
 .swiper-hover-div:hover .card-bg {
-  background: rgba(255, 255, 255, 0.1); /* translucent white */
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px); /* main glass effect */
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
-  color: white;
+  background-color: rgb(0, 0, 0, 0.4);
 }
 
 .swiper-hover-div:hover .swiper-hover-text {
@@ -109,15 +103,17 @@ body {
   transition: opacity 0.3s ease-in-out;
 }
 
-.swiper-hover-div:hover .swiper-hover-text .title {
+.swiper-hover-div .swiper-hover-text .title {
+  /* display: none; */
   transition: all 0.7s ease-in-out;
 }
 .swiper-hover-div:hover .swiper-hover-text .title {
   top: 10px;
+  /* display: block; */
   transition: all 0.7s ease-in-out;
 }
 
-.swiper-hover-div:hover .swiper-hover-text .author {
+.swiper-hover-div .swiper-hover-text .author {
   transition: all 0.7s ease-in-out;
 }
 .swiper-hover-div:hover .swiper-hover-text .author {

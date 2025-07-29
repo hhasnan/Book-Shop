@@ -48,7 +48,7 @@ const LatestBooks = () => {
                                 <div className='w-[100%] h-[100%] text-[rgba(255, 255, 255, 1)] card-bg absolute z-50 top-0 rounded-2xl '>
                                 </div>
                                 <div className='absolute top-0 left-0 z-50 swiper-hover-text flex flex-col w-[100%] h-[100%] rounded-2xl' style={{justifyContent:'space-between'}}>
-                                    <h3 className='text-sm font-bold title absolute top-[-5%] mx-4'>Name : {book.title}</h3>
+                                    <h3 className='text-sm font-bold title absolute top-[-1%] mx-4'>Name : {book.title}</h3>
                                     <div>
                                         
                                     </div>
