@@ -26,7 +26,9 @@ const Home = () => {
             <button className='text-sm lg:text-md underline explore-button relative'>Explore Now <FaArrowRight className='text-[10px] inline-block absolute right-arrow'/></button>
           </div>
           <div className='mx-5 lg:mx-0'>
-            <LatestBooks />
+            <div className="hidden md:block">
+              <LatestBooks />
+            </div>
           </div>
         </div>
       </div>
