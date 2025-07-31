@@ -3,6 +3,7 @@ import { FiSearch } from 'react-icons/fi'
 import { FiShoppingCart } from "react-icons/fi";
 import { BsSun } from "react-icons/bs";
 import { FaUser } from 'react-icons/fa'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,10 +20,10 @@ const Navbar = () => {
             <nav className="flex items-center justify-between flex-wrap bg-white py-4 lg:px-12 shadow border-solid border-t-2 border-[#261060]">
                 {/* Navbar header */}
                 <div className="flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-solid border-b-2 border-gray-300 pb-5 lg:pb-0">
-                    <div className="flex items-center flex-shrink-0 text-gray-800 mr-16">
+                    <Link to='/' className="flex items-center flex-shrink-0 text-gray-800 mr-16">
                         {/* <span className="font-semibold text-xl tracking-tight">Book Shop</span> */}
                         <img src="../../logo-black.svg" alt="" className='h-[4dvh] sm:h-[7dvh] md:h-[4dvh] lg:h-[7dvh]' />
-                    </div>
+                    </Link>
                     {/* Mobile menu toggle */}
                     <div className="block lg:hidden">
                         <button

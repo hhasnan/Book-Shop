@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import MainLayout from './layout/MainLayout'
 import Home from './pages/Home'
+import ExploreBook from './pages/ExploreBook'
 
 
 const App = () => {
@@ -13,7 +14,8 @@ const App = () => {
     createRoutesFromElements(
       <>
       <Route path="/" element={<MainLayout />}>
-        <Route path='/' element={<Home/>}/>
+        <Route index element={<Home/>}/>
+        <Route path='/explore' element={<ExploreBook/>}/>
       </Route>
       </>
     )
