@@ -30,9 +30,15 @@ const ExploreBookSection = () => {
                     ))}
                 </div>
                 <div className='w-fit mx-auto flex mt-4'>
-                    {Array.from({ length: totalPages}, (_, index) => index + 1).map((pageNumber) => (
-                        <button className={`px-4 py-2 shadow rounded ms-3 ${currentPage === pageNumber ? "bg-[rgb(141,110,99)] text-white" : "bg-white text-black hover:bg-[rgba(141,110,99,0.5)]"}`} onClick={() => {handlePageChange(pageNumber)}}>{pageNumber}</button>
+                    {currentPage > 1 && (
+                        <button className='px-4 py-2 shadow rounded ms-3 bg-[rgb(141,110,99)] text-white' onClick={() => setCurrentPage(currentPage - 1)}>«</button>
+                    )}
+                    {Array.from({ length: totalPages }, (_, index) => index + 1).filter((page) => page === currentPage || (page >= currentPage - 2 && page <= currentPage + 2)).map((pageNumber) => (
+                        <button className={`px-4 py-2 shadow rounded ms-3 ${currentPage === pageNumber ? "bg-[rgb(141,110,99)] text-white" : "bg-white text-black hover:bg-[rgba(141,110,99,0.5)]"}`} onClick={() => { handlePageChange(pageNumber) }}>{pageNumber}</button>
                     ))}
+                    {currentPage < totalPages && (
+                        <button className='px-4 py-2 shadow rounded ms-3 bg-[rgb(141,110,99)] text-white' onClick={() => setCurrentPage(currentPage + 1)}>»</button>
+                    )}
                 </div>
             </div>
 
