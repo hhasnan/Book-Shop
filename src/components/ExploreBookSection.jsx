@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-import Books from '../data/books.json'
+// import Books from '../data/books.json'
 
-const ExploreBookSection = () => {
+const ExploreBookSection = ({bookGroup}) => {
 
     const cardPerPage = 12;
     const [currentPage, setCurrentPage] = useState(1);
 
-    const totalPages = Math.ceil(Books.length / cardPerPage);
+    const totalPages = Math.ceil(bookGroup.length / cardPerPage);
 
     const indexOfLastBook = currentPage * cardPerPage;
     const indexOfFirstPage = indexOfLastBook - cardPerPage;
-    const currentCards = Books.slice(indexOfFirstPage, indexOfLastBook);
+    const currentCards = bookGroup.slice(indexOfFirstPage, indexOfLastBook);
 
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -33,7 +33,7 @@ const ExploreBookSection = () => {
                     {currentPage > 1 && (
                         <button className='px-4 py-2 shadow rounded ms-3 bg-[rgb(141,110,99)] text-white' onClick={() => setCurrentPage(currentPage - 1)}>«</button>
                     )}
-                    {Array.from({ length: totalPages }, (_, index) => index + 1).filter((page) => page === currentPage || (page >= currentPage - 2 && page <= currentPage + 2)).map((pageNumber) => (
+                    {Array.from({ length: totalPages }, (_, index) => index + 1).filter((page) => page === currentPage || (page >= currentPage - 2 && page <= currentPage + 1)).map((pageNumber) => (
                         <button className={`px-4 py-2 shadow rounded ms-3 ${currentPage === pageNumber ? "bg-[rgb(141,110,99)] text-white" : "bg-white text-black hover:bg-[rgba(141,110,99,0.5)]"}`} onClick={() => { handlePageChange(pageNumber) }}>{pageNumber}</button>
                     ))}
                     {currentPage < totalPages && (
