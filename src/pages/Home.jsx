@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
 
-  const latestBooks = [...BookData].sort((a, b) => b.year - a.year).slice(3, 7);
+  const latestBooks = [...BookData].sort((a, b) => b.year - a.year).slice(0, 7);
 
   return (
     <div className=''>
