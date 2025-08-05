@@ -19,7 +19,7 @@ const Navbar = () => {
     return (
         <div>
             <div className='text-center font-semibold text-white bg-[#8D6E63]'>
-                <marquee className="text-[10px] lg:text-sm mb-[5px] lg:mb-[0px]" behavior="scroll" direction="left"><pre>Pakistan's Best Online Book Store                                               Your next favorite book is just a click away                                            From classics to new arrivals — we have it all</pre></marquee>
+                <marquee className="text-[10px] lg:text-sm mb-[2px] md:mb-[5px] lg:mb-[0px]" behavior="scroll" direction="left"><pre>Pakistan's Best Online Book Store                                               Your next favorite book is just a click away                                            From classics to new arrivals — we have it all</pre></marquee>
             </div>
             <nav className="flex items-center justify-between flex-wrap bg-white py-4 lg:px-12 shadow border-solid border-t-2 border-[#261060]">
                 {/* Navbar header */}
