@@ -9,6 +9,7 @@ import Home from './pages/Home'
 import ExploreBook from './pages/ExploreBook'
 import AuthPage from "./pages/AuthPage";
 import Logout from "./pages/Logout";
+import ReadMore from "./pages/ReadMore";
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route index element={<Home/>}/>
         <Route path='/explore' element={<ExploreBook/>}/>
       </Route>
+        <Route path='/explore/read-more/:id' element={<ReadMore/>}/>
         <Route path='/sign-in' element={<AuthPage/>}/>
         <Route path='/log-out' element={<Logout/>}/>
       </>

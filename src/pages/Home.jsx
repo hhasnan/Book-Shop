@@ -12,6 +12,7 @@ const Home = () => {
   const latestBooks = [...BookData].sort((a, b) => b.year - a.year).slice(0, 7);
 
   return (
+    <>
     <div className=''>
       <div className='flex flex-col lg:flex-row container mx-auto mt-10 lg:mt-15 overflow-hidden'>
         <div className='w-[100%] lg:w-[50%] text-center mt-0 lg:mt-17 mb-10 px-10 lg:px-0'>
@@ -63,6 +64,7 @@ const Home = () => {
         </div>
       </div>
     </div>
+    </>
   )
 }
 

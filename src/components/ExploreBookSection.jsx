@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 // import Books from '../data/books.json'
 
 const ExploreBookSection = ({bookGroup}) => {
@@ -21,12 +22,12 @@ const ExploreBookSection = ({bookGroup}) => {
             <div>
                 <div className='pt-7 container mx-auto flex flex-wrap' style={{ justifyContent: 'center' }}>
                     {currentCards.map((book, index) => (
-                        <div key={index} className='w-min mx-auto md:mx-2 lg:mx-5'>
+                        <Link to={`/explore/read-more/${encodeURIComponent(book.id)}`} key={index} className='w-min mx-auto md:mx-2 lg:mx-5'>
                             <div className='w-[220px] h-[300px] rounded-md border'>
                                 <img src={book.image_url} alt="" className='w-[inherit] h-[inherit] rounded-md' />
                             </div>
                             <h1 className='text-center mt-2 mb-4'>{book.title.slice(0, 20)}{book.title.length >= 20 && `...`}</h1>
-                        </div>
+                        </Link>
                     ))}
                 </div>
                 <div className='w-fit mx-auto flex mt-4'>

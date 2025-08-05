@@ -46,7 +46,6 @@ const SignInCard = ({ signin }) => {
     return (
         <div className='bg-white shadow rounded-2xl px-10 pb-5'>
             <div className='py-7 flex items-center'>
-                <Link to='/'><FaArrowLeft/></Link>
                 <h1 className='text-2xl mx-auto'>Login</h1>
             </div>
             <h3>Email</h3>

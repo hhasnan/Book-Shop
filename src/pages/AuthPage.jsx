@@ -8,7 +8,7 @@ const AuthPage = () => {
   const [signin , setSignin] = useState(true)
 
   return (
-    <div className='bg-[#F5F5F5] h-[100dvh] flex items-center' style={{ justifyContent: 'center' }}>
+    <div className='bg-[#F5F5F5] h-[100dvh] flex items-center overflow-hidden' style={{ justifyContent: 'center' }}>
       <div>
         {signin ? <SignInCard signin={setSignin}/> : <SignUpCard signin={setSignin}/>}
       </div>
