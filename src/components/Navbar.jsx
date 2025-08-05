@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import { FiSearch } from 'react-icons/fi'
 import { FiShoppingCart } from "react-icons/fi";
 import { BsSun } from "react-icons/bs";
-import { FaUser } from 'react-icons/fa'
+import { FaUser } from 'react-icons/fa';
+import { FaSignOutAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
+
+    const token = localStorage.getItem('token')
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -50,8 +54,8 @@ const Navbar = () => {
                     {/* Auth Buttons */}
                     <div className="flex flex-col lg:flex-row order-1 lg:order-2 ms-2 lg:ms-0 mt-5 lg:mt-0">
                         <button className='flex lg:inline'><FiShoppingCart className="text-black w-5 h-5 lg:me-3  mb-3 lg:mb-0" /> <p className='flex lg:hidden ms-1'>Cart</p></button>
-                        <button className='text-start mb-3 lg:mb-0 flex lg:inline'><FaUser className="text-black w-5 h-5 mb-3 lg:mb-0 lg:hidden me-1 lg:me-0" />Sign In</button>
-                        <button className='flex lg:inline'><BsSun className="text-black w-5 h-5 mb-3 lg:mb-0  ms-0 lg:ms-10" /><p className='flex lg:hidden ms-1'>Theme</p></button>
+                        <button className='flex lg:inline'><BsSun className="text-black w-5 h-5 mb-3 lg:mb-0  ms-0" /><p className='flex lg:hidden ms-1'>Theme</p></button>
+                        {token ? <Link to="/log-out" className='text-start ms-0 lg:ms-5 mb-3 lg:mb-0 flex lg:inline'><FaSignOutAlt className="text-black w-5 h-5 mb-3 lg:mb-0 lg:hidden me-1 lg:me-0" />logout</Link> : <Link to="/sign-in" className='text-start ms-0 lg:ms-5 mb-3 lg:mb-0 flex lg:inline'><FaUser className="text-black w-5 h-5 mb-3 lg:mb-0 lg:hidden me-1 lg:me-0" />Sign In</Link>}
                     </div>
                 </div>
             </nav>
