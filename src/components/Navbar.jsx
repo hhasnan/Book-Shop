@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FiSearch } from 'react-icons/fi'
 import { FiShoppingCart } from "react-icons/fi";
 import { BsSun } from "react-icons/bs";
 import { FaUser } from 'react-icons/fa';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Books from '../data/books.json'
 
 const Navbar = () => {
 
@@ -16,50 +17,74 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    return (
-        <div>
-            <div className='text-center font-semibold text-white bg-[#8D6E63]'>
-                <marquee className="text-[10px] lg:text-sm mb-[2px] md:mb-[5px] lg:mb-[0px]" behavior="scroll" direction="left"><pre>Pakistan's Best Online Book Store                                               Your next favorite book is just a click away                                            From classics to new arrivals — we have it all</pre></marquee>
-            </div>
-            <nav className="flex items-center justify-between flex-wrap bg-white py-4 lg:px-12 shadow border-solid border-t-2 border-[#261060]">
-                {/* Navbar header */}
-                <div className="flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-solid border-b-2 border-gray-300 pb-5 lg:pb-0">
-                    <Link to='/' className="flex items-center flex-shrink-0 text-gray-800 mr-16">
-                        {/* <span className="font-semibold text-xl tracking-tight">Book Shop</span> */}
-                        <img src="../../logo-black.svg" alt="" className='h-[4dvh] sm:h-[7dvh] md:h-[4dvh] lg:h-[7dvh]' />
-                    </Link>
-                    {/* Mobile menu toggle */}
-                    <div className="block lg:hidden">
-                        <button
-                            onClick={toggleMenu}
-                            className="flex items-center px-3 py-2 border-2 rounded text-black border-black-700 hover:shadow-lg "
-                        >
-                            <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <title>Menu</title>
-                                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
+    const [searchTerm, setSearchTerm] = useState('')
+    const [inputFocus, setInputFocus] = useState(false)
 
-                {/* Menu */}
-                <div
-                    className={`menu w-full  flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8 ${isMenuOpen ? 'block' : 'hidden'}`}>
-                    <div className='border-[#EAEFF3] border-2 rounded-4xl flex overflow-hidden mx-auto order-2 lg:order-1 mb-3 lg:mb-0 mt-5 lg:mt-0'>
-                        <input type="text" className='focus:outline-none focus:ring-0 focus:border-transparent ps-5 my-2 h-[20px] w-[-webkit-fill-available] w-[-moz-available]' placeholder='Search' />
-                        <button className='px-5 bg-[#EAEFF3]'>
-                            <FiSearch className="text-gray-500 w-5 h-5" />
-                        </button>
-                    </div>
-                    {/* Auth Buttons */}
-                    <div className="flex flex-col lg:flex-row order-1 lg:order-2 ms-2 lg:ms-0 mt-5 lg:mt-0">
-                        <button className='flex lg:inline'><FiShoppingCart className="text-black w-5 h-5 lg:me-3  mb-3 lg:mb-0" /> <p className='flex lg:hidden ms-1'>Cart</p></button>
-                        <button className='flex lg:inline'><BsSun className="text-black w-5 h-5 mb-3 lg:mb-0  ms-0" /><p className='flex lg:hidden ms-1'>Theme</p></button>
-                        {token ? <Link to="/log-out" className='text-start ms-0 lg:ms-5 mb-3 lg:mb-0 flex lg:inline'><FaSignOutAlt className="text-black w-5 h-5 mb-3 lg:mb-0 lg:hidden me-1 lg:me-0" />logout</Link> : <Link to="/sign-in" className='text-start ms-0 lg:ms-5 mb-3 lg:mb-0 flex lg:inline'><FaUser className="text-black w-5 h-5 mb-3 lg:mb-0 lg:hidden me-1 lg:me-0" />Sign In</Link>}
-                    </div>
+
+    const filteredBooks = Books.filter(book =>
+        book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+
+    return (
+        <>
+            <div>
+                <div className='text-center font-semibold text-white bg-[#8D6E63]'>
+                    <marquee className="text-[10px] lg:text-sm mb-[2px] md:mb-[5px] lg:mb-[0px]" behavior="scroll" direction="left"><pre>Pakistan's Best Online Book Store                                               Your next favorite book is just a click away                                            From classics to new arrivals — we have it all</pre></marquee>
                 </div>
-            </nav>
-        </div>
+                <nav className="flex items-center justify-between flex-wrap bg-white py-4 lg:px-12 shadow border-solid border-t-2 border-[#261060]">
+                    {/* Navbar header */}
+                    <div className="flex justify-between lg:w-auto w-full lg:border-b-0 pl-6 pr-2 border-solid border-b-2 border-gray-300 pb-5 lg:pb-0">
+                        <Link to='/' className="flex items-center flex-shrink-0 text-gray-800 mr-16">
+                            {/* <span className="font-semibold text-xl tracking-tight">Book Shop</span> */}
+                            <img src="../../logo-black.svg" alt="" className='h-[4dvh] sm:h-[7dvh] md:h-[4dvh] lg:h-[7dvh]' />
+                        </Link>
+                        {/* Mobile menu toggle */}
+                        <div className="block lg:hidden">
+                            <button
+                                onClick={toggleMenu}
+                                className="flex items-center px-3 py-2 border-2 rounded text-black border-black-700 hover:shadow-lg "
+                            >
+                                <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <title>Menu</title>
+                                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Menu */}
+                    <div
+                        className={`menu w-full  flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8 ${isMenuOpen ? 'block' : 'hidden'}`}>
+                        <div className='mx-auto relative' onFocus={() => setInputFocus(true)} onBlur={() => setInputFocus(false)}>
+                            <div className='border-[#EAEFF3] border-2 rounded-4xl flex overflow-hidden mx-auto order-2 lg:order-1 mb-3 lg:mb-0 mt-5 lg:mt-0'>
+                                <input type="text" className='focus:outline-none focus:ring-0 focus:border-transparent ps-5 my-2 h-[20px] w-[-webkit-fill-available] w-[-moz-available]' placeholder='Search' onChange={(e) => setSearchTerm(e.target.value)} />
+                                <button className='px-5 bg-[#EAEFF3]'>
+                                    <FiSearch className="text-gray-500 w-5 h-5" />
+                                </button>
+                            </div>
+                            {searchTerm === '' && !inputFocus ? null : <div className='w-[250px] md:w-full lg:w-full h-[360px] bg-[#F5F5F5] shadow-2xl absolute z-100 top-[100] mt-0 lg:mt-2 overflow-auto scrollbar-hide'>
+                                {filteredBooks >= 0 ? <p className='text-center mx-10 mt-5'>Book with this name is not available for now 😓</p> : filteredBooks.map(book => {
+                                    return (
+                                        <div className='mx-3 lg:mx-5 my-4 flex' key={book.id}>
+                                            <img src={book.image_url} alt="" className='w-[60px] h-[80px]' />
+                                            <div className='ms-2'>
+                                                <h1 className='text-sm'>{book.title}</h1>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>}
+                        </div>
+                        {/* Auth Buttons */}
+                        <div className="flex flex-col lg:flex-row order-1 lg:order-2 ms-2 lg:ms-0 mt-5 lg:mt-0">
+                            <button className='flex lg:inline'><FiShoppingCart className="text-black w-5 h-5 lg:me-3  mb-3 lg:mb-0" /> <p className='flex lg:hidden ms-1'>Cart</p></button>
+                            <button className='flex lg:inline'><BsSun className="text-black w-5 h-5 mb-3 lg:mb-0  ms-0" /><p className='flex lg:hidden ms-1'>Theme</p></button>
+                            {token ? <Link to="/log-out" className='text-start ms-0 lg:ms-5 mb-3 lg:mb-0 flex lg:inline'><FaSignOutAlt className="text-black w-5 h-5 mb-3 lg:mb-0 lg:hidden me-1 lg:me-0" />logout</Link> : <Link to="/sign-in" className='text-start ms-0 lg:ms-5 mb-3 lg:mb-0 flex lg:inline'><FaUser className="text-black w-5 h-5 mb-3 lg:mb-0 lg:hidden me-1 lg:me-0" />Sign In</Link>}
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </>
 
     );
 };
