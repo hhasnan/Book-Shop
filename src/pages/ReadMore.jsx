@@ -1,24 +1,27 @@
 import React from 'react'
 import { FaArrowLeft } from 'react-icons/fa'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { FiShoppingCart } from "react-icons/fi";
 import Books from '../data/books.json'
+import { FaExclamationTriangle } from 'react-icons/fa';
+
 
 const ReadMore = () => {
 
+    const Navigate = useNavigate()
     const { id } = useParams();
     console.log(id);
     const decodedId = decodeURIComponent(id);
 
     const book = Books.find((b) => b.id === decodedId);
 
-    if (!book) return <p>Book Not Found In Database</p>
+    if (!book) return <div className='h-[100dvh] flex items-center text-center' style={{justifyContent:'center'}}><div><FaExclamationTriangle className='text-[48px] text-[orange] mx-auto'/><h1 className='font-bold text-xl mt-3'>Book Not Found In Database</h1></div></div>
 
     return (
         <div className='container mx-auto mt-10 flex flex-col md:flex-row'>
             <div className='w-[100%] md:w-[50%]'>
                 <div className='mx-auto w-fit'>
-                    <Link to="/explore"><FaArrowLeft /></Link>
+                    <button onClick={() => Navigate(-1)}><FaArrowLeft /></button>
                     <img src={book.image_url} alt="" className='w-[240px] h-[320px] mt-10' />
                 </div>
             </div>

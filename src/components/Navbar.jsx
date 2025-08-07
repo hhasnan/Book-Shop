@@ -18,7 +18,7 @@ const Navbar = () => {
     };
 
     const [searchTerm, setSearchTerm] = useState('')
-    const [inputFocus, setInputFocus] = useState(false)
+    // const [inputFocus, setInputFocus] = useState(false)
 
 
     const filteredBooks = Books.filter(book =>
@@ -55,22 +55,22 @@ const Navbar = () => {
                     {/* Menu */}
                     <div
                         className={`menu w-full  flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8 ${isMenuOpen ? 'block' : 'hidden'}`}>
-                        <div className='mx-auto relative' onFocus={() => setInputFocus(true)} onBlur={() => setInputFocus(false)}>
+                        <div className='mx-auto relative'>
                             <div className='border-[#EAEFF3] border-2 rounded-4xl flex overflow-hidden mx-auto order-2 lg:order-1 mb-3 lg:mb-0 mt-5 lg:mt-0'>
                                 <input type="text" className='focus:outline-none focus:ring-0 focus:border-transparent ps-5 my-2 h-[20px] w-[-webkit-fill-available] w-[-moz-available]' placeholder='Search' onChange={(e) => setSearchTerm(e.target.value)} />
                                 <button className='px-5 bg-[#EAEFF3]'>
                                     <FiSearch className="text-gray-500 w-5 h-5" />
                                 </button>
                             </div>
-                            {searchTerm === '' && !inputFocus ? null : <div className='w-[250px] md:w-full lg:w-full h-[360px] bg-[#F5F5F5] shadow-2xl absolute z-100 top-[100] mt-0 lg:mt-2 overflow-auto scrollbar-hide'>
+                            {searchTerm === '' ? null : <div className='w-[250px] md:w-full lg:w-full h-[360px] bg-[#F5F5F5] shadow-2xl absolute z-100 top-[100%] mt-0 lg:mt-2 overflow-auto scrollbar-hide' >
                                 {filteredBooks >= 0 ? <p className='text-center mx-10 mt-5'>Book with this name is not available for now 😓</p> : filteredBooks.map(book => {
                                     return (
-                                        <div className='mx-3 lg:mx-5 my-4 flex' key={book.id}>
+                                        <Link to={`/explore/read-more/${encodeURIComponent(book.id)}`} className='mx-2 px-1 lg:mx-4 lg:px-2 my-2 py-2 flex hover:shadow-lg' key={book.id}>
                                             <img src={book.image_url} alt="" className='w-[60px] h-[80px]' />
                                             <div className='ms-2'>
                                                 <h1 className='text-sm'>{book.title}</h1>
                                             </div>
-                                        </div>
+                                        </Link>
                                     )
                                 })}
                             </div>}

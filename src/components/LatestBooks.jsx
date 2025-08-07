@@ -4,13 +4,11 @@
     import { HiOutlineHeart } from 'react-icons/hi'
     import { HiOutlineBookOpen } from 'react-icons/hi';
     import {Tooltip} from 'react-tooltip';
-
-
-    // Import Swiper styles
+    import { FreeMode, Pagination } from 'swiper/modules';
+    import { Link } from 'react-router-dom';
     import 'swiper/css';
     import 'swiper/css/effect-cards';
 
-    import { FreeMode, Pagination } from 'swiper/modules';
 
     const LatestBooks = () => {
 
@@ -57,7 +55,7 @@
                                         <h3 className='text-sm font-bold title absolute top-[-1%] mx-4'>Name : {book.title}</h3>
                                         <div className='flex flex-row w-[86%] my-auto mx-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-sm px-2 py-2 shadow-lg'>
                                             <button className="mx-auto cart"><FiShoppingCart/></button>
-                                            <button className="mx-auto read-more"><HiOutlineBookOpen/></button>
+                                            <Link to={`/explore/read-more/${encodeURIComponent(book.id)}`} className="mx-auto read-more"><HiOutlineBookOpen/></Link>
                                             <button className="mx-auto wishlist"><HiOutlineHeart/></button>
                                         </div>
                                         <p className='text-sm author absolute bottom-[-5%] mx-4'>
