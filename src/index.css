@@ -27,6 +27,38 @@ body {
   display: none; /* Chrome, Safari, Opera */
 }
 
+.dark-1{
+  background-color:  #1E1E1E;
+}
+
+.dark-2{
+  background-color:  #2C2C2C;
+}
+
+.dark-text-1{
+  color: #F5F5F5;
+}
+
+.dark-text-2{
+  color: #B3B3B3;
+}
+
+.cart-container {
+  height: calc(100dvh - 136px);
+}
+
+@media (min-width: 600px) {
+  .cart-container {
+    height: calc(100dvh - 139px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cart-container {
+    height: calc(100dvh - 117px);
+  }
+}
+
 /* swiper css */
 
 

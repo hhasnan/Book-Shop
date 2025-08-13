@@ -1,14 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import SignInCard from '../components/SignInCard'
 import SignUpCard from '../components/SignUpCard'
+import { ThemeContext } from '../context/ThemeContext'
 
 const AuthPage = () => {
+
+  const { darkTheme } = useContext(ThemeContext)
 
   const [signin , setSignin] = useState(true)
 
   return (
-    <div className='bg-[#F5F5F5] h-[100dvh] flex items-center overflow-hidden' style={{ justifyContent: 'center' }}>
+    <div className={` ${darkTheme ? 'dark-1' : 'bg-[#F5F5F5]'} h-[100dvh] flex items-center overflow-hidden`} style={{ justifyContent: 'center' }}>
       <div>
         {signin ? <SignInCard signin={setSignin}/> : <SignUpCard signin={setSignin}/>}
       </div>

@@ -1,10 +1,12 @@
 import React from 'react'
+import { Navigate } from 'react-router-dom';
 
-const ProtectiveRoutes = () => {
+const ProtectiveRoutes = ({ children }) => {
+
+  const checkAuth = localStorage.getItem('token');
+
   return (
-    <div>
-      
-    </div>
+      checkAuth ? children : <Navigate to="/sign-in" />
   )
 }
 

@@ -1,7 +1,5 @@
     import { Swiper, SwiperSlide } from 'swiper/react';
     import BookData from '../data/books.json'
-    import { FiShoppingCart } from "react-icons/fi";
-    import { HiOutlineHeart } from 'react-icons/hi'
     import { HiOutlineBookOpen } from 'react-icons/hi';
     import {Tooltip} from 'react-tooltip';
     import { FreeMode, Pagination } from 'swiper/modules';
@@ -53,11 +51,9 @@
                                     </div>
                                     <div className='absolute top-0 left-0 z-[100] swiper-hover-text flex flex-col w-[100%] h-[100%] rounded-2xl ' style={{justifyContent:'space-between'}}>
                                         <h3 className='text-sm font-bold title absolute top-[-1%] mx-4'>Name : {book.title}</h3>
-                                        <div className='flex flex-row w-[86%] my-auto mx-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-sm px-2 py-2 shadow-lg'>
-                                            <button className="mx-auto cart"><FiShoppingCart/></button>
-                                            <Link to={`/explore/read-more/${encodeURIComponent(book.id)}`} className="mx-auto read-more"><HiOutlineBookOpen/></Link>
-                                            <button className="mx-auto wishlist"><HiOutlineHeart/></button>
-                                        </div>
+                                        <Link to={`/explore/read-more/${encodeURIComponent(book.id)}`} className='read-more flex flex-row w-[86%] my-auto mx-auto bg-white/10 backdrop-blur-md border border-white/20 rounded-sm px-2 py-2 shadow-lg'>
+                                            <div className="mx-auto"><HiOutlineBookOpen/></div>
+                                        </Link>
                                         <p className='text-sm author absolute bottom-[-5%] mx-4'>
                                             Year : {book.year} <br />
                                             Author : {book.author}
@@ -71,12 +67,6 @@
                 </Swiper>
                 <Tooltip anchorSelect=".read-more" place="top" className="z-[100]">
                     Read More
-                </Tooltip>
-                <Tooltip anchorSelect=".wishlist" place="top" className="z-[100]">
-                    Add to wishlist
-                </Tooltip>
-                <Tooltip anchorSelect=".cart" place="top" className="z-[100]">
-                    Add to cart
                 </Tooltip>
             </>
         )

@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { FaArrowLeft } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom'
+import { ThemeContext } from '../context/ThemeContext'
 
 const SignInCard = ({ signin }) => {
+
+    const { darkTheme } = useContext(ThemeContext)
 
     const Navigate = useNavigate();
 
@@ -44,14 +47,14 @@ const SignInCard = ({ signin }) => {
     }, [email, password])
 
     return (
-        <div className='bg-white shadow rounded-2xl px-10 pb-5'>
+        <div className={`${darkTheme ? 'dark-2 dark-text-2' : 'bg-white'} shadow rounded-2xl px-6 pb-5`}>
             <div className='py-7 flex items-center'>
                 <h1 className='text-2xl mx-auto'>Login</h1>
             </div>
             <h3>Email</h3>
-            <input type="text" placeholder='E-mail : hasnan@gmail.com' className='border px-2 py-1 rounded-md' onChange={(e) => { setEmail(e.target.value) }} />
+            <input type="text" placeholder='E-mail : hasnan@gmail.com' className='border px-2 py-1 rounded-md w-[280px]' onChange={(e) => { setEmail(e.target.value) }} />
             <h3 className='mt-3'>Password</h3>
-            <input type="password" placeholder='password : 123' className='border px-2 py-1 rounded-md' onChange={(e) => { setpassword(e.target.value) }} />
+            <input type="password" placeholder='password : 123' className='border px-2 py-1 rounded-md w-[280px]' onChange={(e) => { setpassword(e.target.value) }} />
             <br />
             <div className='w-[100%] mt-8'>
                 <button onClick={login} className={`px-10 py-2 rounded-md bg-[#8D6E63] text-white text-sm font-medium shadow-md hover:bg-[#7C5D55] transition duration-300 ease-in-out w-[100%] block text-center`}>Sign In</button>
